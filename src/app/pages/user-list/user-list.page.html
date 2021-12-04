@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>user-list</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <ion-card lines="full" *ngFor="let user of appUsers">
+  
+   <ion-item lines="none">
+    <ion-avatar slot="start">
+      <img  [src]="getAvatar(user)">
+    </ion-avatar>
+    <ion-label slot="start">{{user.name}}</ion-label>
+    <ion-label slot="end">{{user.lastName}}</ion-label>
+   </ion-item>
+
+ </ion-card>
+
+</ion-content>

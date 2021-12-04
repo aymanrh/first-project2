@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -8,7 +9,9 @@ import { AlertController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private alertController :AlertController) { }
+  constructor(private alertController :AlertController,private router:Router) {
+
+   }
 
   ngOnInit() {
   }
@@ -40,5 +43,8 @@ export class LoginPage implements OnInit {
   }
   logout(){
 
+  }
+  goToHome(){
+      this.router.navigate(['home-page'])
   }
 }
