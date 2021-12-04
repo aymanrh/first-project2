@@ -1,19 +1,18 @@
 <ion-header> 
   <ion-toolbar>
     <div>
-      <ion-title>Login 222</ion-title>
-     <ion-button size="large" fill="outline" (click)="login()" >click</ion-button>
-     <ion-button (click)="logout()" >click</ion-button>
+      <ion-title>Login </ion-title>
+
     </div>
 
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-label>check</ion-label>
-<ion-checkbox></ion-checkbox>
-<ion-label>check2</ion-label>
-<ion-checkbox color="primary"></ion-checkbox>
-<ion-label>check3</ion-label>
-<ion-checkbox></ion-checkbox>
+  <ion-item lines="full">
+    <ion-button slot="start" [routerLink]="['/user-list']" >User list</ion-button>
+    <ion-button slot="end" (click)="goToHome()" >Home</ion-button>
+  </ion-item>
+
+
 </ion-content>
