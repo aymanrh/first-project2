@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService, Message } from '../services/data.service';
+import { AuthService } from '../services/user/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,7 @@ import { DataService, Message } from '../services/data.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(private data: DataService) {}
+  constructor(private data: DataService,private authService:AuthService) {}
 
   refresh(ev) {
     setTimeout(() => {
@@ -18,5 +19,7 @@ export class HomePage {
   getMessages(): Message[] {
     return this.data.getMessages();
   }
-
+  logout(){
+      this.authService.logout();
+  }
 }

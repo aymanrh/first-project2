@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './services/user/auth.guard';
 
 const routes: Routes = [
   {
@@ -9,11 +10,13 @@ const routes: Routes = [
   },
   {
     path: 'home-page',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    canLoad:[AuthGuard]
   },
   {
     path: 'message/:id',
-    loadChildren: () => import('./view-message/view-message.module').then( m => m.ViewMessagePageModule)
+    loadChildren: () => import('./view-message/view-message.module').then( m => m.ViewMessagePageModule),
+    canLoad:[AuthGuard]
   },
  
   {
@@ -22,8 +25,13 @@ const routes: Routes = [
   },
   {
     path: 'user-list',
-    loadChildren: () => import('./pages/user-list/user-list.module').then( m => m.UserListPageModule)
+    loadChildren: () => import('./pages/user-list/user-list.module').then( m => m.UserListPageModule),
+    canLoad:[AuthGuard]
+  },  {
+    path: 'register-user',
+    loadChildren: () => import('./pages/register-user/register-user.module').then( m => m.RegisterUserPageModule)
   },
+
 
 
 

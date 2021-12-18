@@ -4,12 +4,11 @@ import { AlertController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/user/auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-register-user',
+  templateUrl: './register-user.page.html',
+  styleUrls: ['./register-user.page.scss'],
 })
-export class LoginPage implements OnInit {
-
+export class RegisterUserPage implements OnInit {
 
 
   constructor(private alertController :AlertController,
@@ -20,17 +19,9 @@ export class LoginPage implements OnInit {
    }
 
   ngOnInit() {
-    
   }
-  
-  logout(){
-
-  }
-  goToHome(){
-      this.router.navigate(['home-page'])
-  }
-  login(email,password){
-   
+  register(email,password){
+    console.log(email.value,email.value);
     if(!email.value && email.value.length <3){
       return;
     }
@@ -38,13 +29,9 @@ export class LoginPage implements OnInit {
       return;
     }
 
-    this.authService.signIn(email.value,password.value).then(data=>{
-      console.log(data.user);
-      if(data.user){
-        localStorage.setItem('user',JSON.stringify(data.user))
-        this.router.navigateByUrl('/home-page', {replaceUrl: true});
-      }
-
+    this.authService.registerUser(email.value,password.value).then(data=>{
+      console.log(data);
+      
 
     }).catch(err=>{
       console.error(err);
